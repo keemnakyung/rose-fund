@@ -261,6 +261,10 @@ const HistoryName = styled.h4`
 	font-size: 1.125rem;
 	font-weight: 600;
 	color: #000;
+
+	@media (max-width: 768px) {
+		font-size: 1rem;
+	}
 `;
 
 const HistoryDate = styled.p`
@@ -272,6 +276,10 @@ const HistoryDetail = styled.p`
 	font-size: 1rem;
 	color: #666;
 	line-height: 1.6;
+
+	@media (max-width: 768px) {
+		font-size: 0.875rem;
+	}
 `;
 
 const EmptyCard = styled.div`

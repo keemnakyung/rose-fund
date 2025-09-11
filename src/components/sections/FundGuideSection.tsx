@@ -66,6 +66,10 @@ const ContentBox = styled.div`
 	@media (max-width: 1024px) {
 		max-width: 100%;
 	}
+
+	@media (max-width: 768px) {
+		gap: 1rem;
+	}
 `;
 
 const SupportCategories = styled.div`
@@ -73,6 +77,10 @@ const SupportCategories = styled.div`
 	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 	gap: 2rem;
 	width: 100%;
+
+	@media (max-width: 768px) {
+		gap: 1rem;
+	}
 `;
 
 const CategoryCard = styled.div<{ $visible: boolean; $delay: number }>`

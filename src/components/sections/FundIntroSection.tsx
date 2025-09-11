@@ -34,7 +34,7 @@ export default function FundIntroSection() {
 						<span>고아 청년들의 자립을 돕는</span>
 						<img src={logo} alt="442장미기금" />
 					</TitleWithLogo>
-					<p>당신의 작은 나눔이 누군가에겐 인생의 새로운 출발선이 됩니다.</p>
+					<p>당신의 작은 나눔이 <br className="mobile-br" /> 누군가에겐 인생의 새로운 출발선이 됩니다.</p>
 					<div className="description">
 						<StorySection>
 							<h3>442장미기금 설립 비하인드 스토리</h3>
@@ -101,7 +101,7 @@ const ContentBox = styled.div`
 	}
 
 	@media (max-width: 480px) {
-		padding: 2rem 1.5rem 14rem 1.5rem;
+		padding: 2rem 1rem 14rem 1rem;
 	}
 `;
 
@@ -149,6 +149,7 @@ const TextContent = styled.div`
 	@media (max-width: 768px) {
 		p {
 			font-size: 0.875rem;
+			line-height: 1.4;
 			text-align: center;
 		}
 	}
@@ -221,12 +222,7 @@ const TitleWithLogo = styled.h2`
 
 		span {
 			font-size: 1rem;
-		}
-		
-		img {
-			height: 1.5rem;
-		}
-		
+		}		
 	}
 `; 
 
@@ -257,6 +253,7 @@ const StorySection = styled.div`
 
 		h3 {
 			font-size: 1rem;
+			margin-bottom: 0.5rem;
 			padding: 0.5rem 0.75rem;
 		}
 

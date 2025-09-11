@@ -15,11 +15,11 @@ const DonationInfo = forwardRef<HTMLDivElement, DonationInfoProps>(
 				<DonationContent>
 					<TitleSection>
 						<TitleBadge>442장미기금 후원 계좌</TitleBadge>
-						<TitleText>후원을 원하시는 분은 아래 계좌로 후원부탁드립니다.</TitleText>
+						<TitleText>후원을 원하시는 분은<br className="mobile-br" /> 아래 계좌로 후원부탁드립니다.</TitleText>
 					</TitleSection>
 					
 					<AccountInfo>
-						농협 351-1374-6986-13 (예금주: 442장미기금)
+						농협 351-1374-6986-13 <br className="mobile-br" /> (예금주: 442장미기금)
 					</AccountInfo>
 					
 					<InfoList>
@@ -112,6 +112,11 @@ const TitleText = styled.p`
 	color: #666;
 	line-height: 1.6;
 	margin: 0;
+
+	@media (max-width: 768px) {
+		text-align: center;
+		line-height: 1.4;
+	}
 `;
 
 const AccountInfo = styled.div`

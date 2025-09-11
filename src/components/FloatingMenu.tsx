@@ -23,6 +23,7 @@ export default function FloatingMenu() {
 				$color={colors.primary}
 				onClick={() => scrollToSection('sponsor')}
 				title="후원하기"
+				className="hide-mobile-480"
 			>
 				<IconImage src={floatingIcon01} alt="후원하기" className="hide-mobile" />
 				<ButtonText>후원하기</ButtonText>
@@ -32,6 +33,7 @@ export default function FloatingMenu() {
 				$color="#4A90E2"
 				onClick={() => scrollToSection('contact')}
 				title="문의하기"
+				className="hide-mobile-480"
 			>
 				<IconImage src={floatingIcon02} alt="문의하기" className="hide-mobile" />
 				<ButtonText>문의하기</ButtonText>
@@ -42,8 +44,8 @@ export default function FloatingMenu() {
 				onClick={scrollToTop}
 				title="상단으로"
 			>
-				<IconImage src={floatingIcon03} alt="상단으로" className="hide-mobile" />
-				<ButtonText>상단으로</ButtonText>
+				<IconImage src={floatingIcon03} alt="상단으로" className="show-icon-480" />
+				<ButtonText className="hide-text-480">상단으로</ButtonText>
 			</FloatingButton>
 		</FloatingContainer>
 	);
@@ -59,7 +61,7 @@ const FloatingContainer = styled.div`
 
 	@media (max-width: 480px) {
 		right: 0.5rem;
-		bottom: 4.125rem;
+		bottom: 5.5rem;
 		gap: 0.25rem;
 	}
 `;
@@ -89,7 +91,7 @@ const FloatingButton = styled.button<{ $color: string }>`
 	}
 
 	@media (max-width: 768px) {
-		width: 5.25rem;
+		width: 2.25rem;
 		height: 2.25rem;
 		gap: 0.25rem;
 		padding: 0 0.75rem;

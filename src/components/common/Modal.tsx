@@ -10,7 +10,7 @@ interface ModalProps {
 }
 
 export default function Modal({ isOpen, onClose, title, children }: ModalProps) {
-	// ESC 키로 모달 닫기
+	// ESC 키로 모달 닫기 및 모바일 확대 허용
 	useEffect(() => {
 		const handleEscape = (e: KeyboardEvent) => {
 			if (e.key === 'Escape') {
@@ -22,11 +22,23 @@ export default function Modal({ isOpen, onClose, title, children }: ModalProps) 
 			document.addEventListener('keydown', handleEscape);
 			// 모달이 열릴 때 body 스크롤 방지
 			document.body.style.overflow = 'hidden';
+			
+			// 모바일에서 모달이 열릴 때만 확대 허용
+			const viewport = document.querySelector('meta[name="viewport"]');
+			if (viewport && window.innerWidth <= 768) {
+				viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes');
+			}
 		}
 
 		return () => {
 			document.removeEventListener('keydown', handleEscape);
 			document.body.style.overflow = 'unset';
+			
+			// 모달이 닫힐 때 원래 viewport 설정으로 복원
+			const viewport = document.querySelector('meta[name="viewport"]');
+			if (viewport && window.innerWidth <= 768) {
+				viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+			}
 		};
 	}, [isOpen, onClose]);
 
@@ -58,7 +70,7 @@ const ModalOverlay = styled.div`
 	justify-content: center;
 	align-items: center;
 	z-index: 1000;
-	padding: 2rem;
+	padding: 1rem;
 	animation: fadeIn 0.3s ease-out;
 	
 	@keyframes fadeIn {
@@ -133,5 +145,22 @@ const ModalBody = styled.div`
 
 	@media (max-width: 768px) {
 		padding: 1rem;
+		
+		/* 이미지 컨테이너에 스크롤 영역 생성 */
+		> div {
+			overflow: auto;
+			max-height: 60vh;
+			-webkit-overflow-scrolling: touch;
+			position: relative;
+		}
+		
+		/* 모바일에서 이미지 확대를 위한 설정 */
+		img {
+			touch-action: pinch-zoom;
+			width: 100%;
+			height: auto;
+			display: block;
+			transform-origin: center center;
+		}
 	}
 `; 

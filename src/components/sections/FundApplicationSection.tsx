@@ -177,6 +177,7 @@ const FormGroup = styled.div`
 
 		label {
 			font-size: 1rem;
+			min-width: auto;
 		}
 
 		input, textarea {

@@ -16,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
 	body {
 		color: #fff;
 		font-size: 16px;
-		font-family: 'Pretendard', 'TJJoyofsinging', Arial, sans-serif !important;
+		font-family: 'Pretendard', Arial, sans-serif !important;
 		margin: 0;
 	}
 	a {
@@ -74,6 +74,21 @@ const GlobalStyle = createGlobalStyle`
 	}
 	@media (max-width: 480px) {
 		.hide-tablet-show-mobile { display: flex; }
+	}
+
+	.hide-mobile-480 { display: flex; }
+	@media (max-width: 480px) {
+		.hide-mobile-480 { display: none !important; }
+	}
+
+	.hide-text-480 { display: inline; }
+	@media (max-width: 480px) {
+		.hide-text-480 { display: none !important; }
+	}
+
+	.show-icon-480 { display: none; }
+	@media (max-width: 480px) {
+		.show-icon-480 { display: inline !important; }
 	}
 `;
 
