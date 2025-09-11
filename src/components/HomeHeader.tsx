@@ -216,7 +216,7 @@ const MobileBottomNav = styled.nav`
 	bottom: 0;
 	left: 0;
 	width: 100%;
-	height: 60px;
+	height: 80px;
 	background: rgba(255, 255, 255, 0.95);
 	backdrop-filter: blur(8px);
 	border-top: 1px solid rgba(0, 0, 0, 0.1);
