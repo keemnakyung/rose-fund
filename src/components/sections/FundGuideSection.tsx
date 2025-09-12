@@ -14,6 +14,9 @@ import donationHands from "../../img/donate_hands.png";
 import useScrollFadeIn from "../../hooks/useScrollFadeIn";
 
 export default function FundGuideSection() {
+	// ContentBox용 스크롤 효과 훅
+	const contentRef = useScrollFadeIn();
+	
 	// 각 카드별로 스크롤 효과 훅 생성
 	const card1Ref = useScrollFadeIn();
 	const card2Ref = useScrollFadeIn();
@@ -27,7 +30,7 @@ export default function FundGuideSection() {
 	return (
 		<SectionWrapper id="guide" backgroundImage={sec02Bg}>
 			<SectionTitle>기금안내</SectionTitle>
-			<ContentBox>
+			<ContentBox ref={contentRef.ref} $visible={contentRef.visible}>
 				<SupportCategories>
 					<CategoryCard ref={card1Ref.ref} $visible={card1Ref.visible} $delay={0}>
 						<img src={sec02_01} alt="생활비 지원" />
@@ -56,12 +59,15 @@ export default function FundGuideSection() {
 	);
 }
 
-const ContentBox = styled.div`
+const ContentBox = styled.div<{ $visible: boolean }>`
 	max-width: 1400px;
 	margin: 0 auto;
 	border-radius: 20px;
 	${flexColumnCenter}
 	gap: 3rem;
+	opacity: ${props => props.$visible ? 1 : 0};
+	transform: ${props => props.$visible ? 'translateY(0)' : 'translateY(30px)'};
+	transition: opacity 0.6s ease, transform 0.6s ease;
 
 	@media (max-width: 1024px) {
 		max-width: 100%;
@@ -75,7 +81,7 @@ const ContentBox = styled.div`
 const SupportCategories = styled.div`
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-	gap: 2rem;
+	gap: 1rem;
 	width: 100%;
 
 	@media (max-width: 768px) {

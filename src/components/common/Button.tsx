@@ -5,11 +5,12 @@ interface ButtonProps {
 	children: React.ReactNode;
 	onClick?: () => void;
 	variant?: 'primary' | 'secondary';
+	type?: 'button' | 'submit' | 'reset';
 }
 
-export default function Button({ children, onClick, variant = 'primary' }: ButtonProps) {
+export default function Button({ children, onClick, variant = 'primary', type = 'button' }: ButtonProps) {
 	return (
-		<StyledButton onClick={onClick} $variant={variant}>
+		<StyledButton onClick={onClick} $variant={variant} type={type}>
 			{children}
 		</StyledButton>
 	);

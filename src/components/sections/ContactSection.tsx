@@ -6,9 +6,15 @@ import SectionWrapper from "../common/SectionWrapper";
 import Button from "../common/Button";
 import useScrollFadeIn from "../../hooks/useScrollFadeIn";
 import sec05People from "../../img/section05/sec05_people.png";	
+import useMailsend from "@/hooks/useMailsend";
 
 export default function ContactSection() {
 	const contentRef = useScrollFadeIn();
+	const {
+		mailsendForData,
+		changeHandler,
+		submitHandler,
+	} = useMailsend({ contentTitle: "문의내용" });
 
 	return (
 		<SectionWrapper id="contact">
@@ -27,31 +33,35 @@ export default function ContactSection() {
 					<form>
 						<FormGroup>
 							<label>이&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;름</label>
-							<input type="text" placeholder="이름을 입력해주세요" />
+							<input 
+								type="text" 
+								placeholder="이름을 입력해주세요" 
+								name="userName"
+								value={mailsendForData.userName}
+								onChange={changeHandler}
+							/>
 						</FormGroup>
 						<FormGroup>
 							<label>연&nbsp;&nbsp;락&nbsp;&nbsp;처</label>
 							<input 
 								type="tel" 
 								placeholder="연락처를 입력해주세요" 
-								maxLength={13}
-								onKeyPress={(e) => {
-									if (!/[0-9]/.test(e.key)) {
-										e.preventDefault();
-									}
-								}}
-								onInput={(e) => {
-									const target = e.target as HTMLInputElement;
-									target.value = target.value.replace(/[^0-9]/g, '');
-								}}
+								name="userPhone"
+								value={mailsendForData.userPhone}
+								onChange={changeHandler}
 							/>
 						</FormGroup>
 						<FormGroup>
 							<label>문의내용</label>
-							<textarea placeholder="문의하실 내용을 자세히 적어주세요"></textarea>
+							<textarea 
+								placeholder="문의하실 내용을 자세히 적어주세요"
+								name="content"
+								value={mailsendForData.content}
+								onChange={changeHandler}
+							></textarea>
 						</FormGroup>
 						<ButtonWrapper>
-							<Button>문의하기</Button>
+							<Button type="button" onClick={submitHandler}>문의하기</Button>
 						</ButtonWrapper>
 					</form>
 				</ContactForm>

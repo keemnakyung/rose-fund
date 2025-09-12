@@ -8,6 +8,7 @@ import Modal from "../common/Modal";
 import sec01People from "../../img/section01/sec01_people.png";
 import logo from "../../img/logo_color.png";
 import { useState } from "react";
+import useScrollFadeIn from "../../hooks/useScrollFadeIn";
 
 // 정관 이미지들 import
 import incorporation01 from "../../img/section01/incorporation01.jpg";
@@ -19,6 +20,7 @@ import incorporation06 from "../../img/section01/incorporation06.jpg";
 
 export default function FundIntroSection() {
 	const [isModalOpen, setIsModalOpen] = useState(false);
+	const contentRef = useScrollFadeIn();
 
 	const openModal = () => setIsModalOpen(true);
 	const closeModal = () => setIsModalOpen(false);
@@ -28,7 +30,7 @@ export default function FundIntroSection() {
 	return (
 		<SectionWrapper id="intro">
 			<SectionTitle>기금소개</SectionTitle>
-			<ContentBox>
+			<ContentBox ref={contentRef.ref} $visible={contentRef.visible}>
 				<TextContent>
 					<TitleWithLogo>
 						<span>고아 청년들의 자립을 돕는</span>
@@ -79,7 +81,7 @@ export default function FundIntroSection() {
 	);
 }
 
-const ContentBox = styled.div`
+const ContentBox = styled.div<{ $visible: boolean }>`
 	max-width: 1400px;
 	margin: 0 auto;
 	background-color: #F7F2EC;
@@ -88,6 +90,9 @@ const ContentBox = styled.div`
 	${flexColumnCenter}
 	gap: 2rem;
 	position: relative;
+	opacity: ${props => props.$visible ? 1 : 0};
+	transform: ${props => props.$visible ? 'translateY(0)' : 'translateY(30px)'};
+	transition: opacity 0.6s ease, transform 0.6s ease;
 	
 	@media (max-width: 1024px) {
 		padding: 3rem 2rem;

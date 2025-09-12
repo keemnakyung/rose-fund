@@ -16,15 +16,15 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.30.1",
-    "react-scripts": "^5.0.1",
+    "react-scripts": "5.0.1",
     "styled-components": "^6.1.19",
     "web-vitals": "^2.1.4",
     "zustand": "^5.0.8"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -47,8 +47,8 @@
   },
   "devDependencies": {
     "@craco/craco": "^7.1.0",
-    "@types/axios": "^0.9.36",
-    "@types/moment": "^2.11.29",
+    "@types/axios": "^0.14.4",
+    "@types/moment": "^2.13.0",
     "@types/react-router-dom": "^5.3.3",
     "@types/styled-components": "^5.1.34",
     "typescript": "^4.9.5"
