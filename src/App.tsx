@@ -8,6 +8,7 @@ import SponsorSection from './components/sections/SponsorSection';
 import ContactSection from './components/sections/ContactSection';
 import Footer from './components/Footer';
 import FloatingMenu from './components/FloatingMenu';
+import MailSpinner from './components/common/MailSpinner';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <ContactSection />
       <Footer />
       <FloatingMenu />
+      <MailSpinner />
     </div>
   );
 }
