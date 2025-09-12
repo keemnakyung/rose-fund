@@ -44,7 +44,7 @@ export default function FloatingMenu() {
 				onClick={scrollToTop}
 				title="상단으로"
 			>
-				<IconImage src={floatingIcon03} alt="상단으로" className="show-icon-480" />
+				<IconImage src={floatingIcon03} alt="상단으로" className="hide-icon-768" />
 				<ButtonText className="hide-text-480">상단으로</ButtonText>
 			</FloatingButton>
 		</FloatingContainer>
@@ -91,6 +91,13 @@ const FloatingButton = styled.button<{ $color: string }>`
 	}
 
 	@media (max-width: 768px) {
+		width: 120px;
+		height: 40px;
+		gap: 0.5rem;
+		padding: 0 1rem;
+	}
+
+	@media (max-width: 480px) {
 		width: 2.25rem;
 		height: 2.25rem;
 		gap: 0.25rem;
@@ -102,6 +109,11 @@ const IconImage = styled.img`
 	flex-shrink: 0;
 
 	@media (max-width: 768px) {
+		width: 24px;
+		height: 24px;
+	}
+
+	@media (max-width: 480px) {
 		width: 20px;
 		height: 20px;
 	}
@@ -115,6 +127,10 @@ const ButtonText = styled.span`
 	white-space: nowrap;
 
 	@media (max-width: 768px) {
+		font-size: 0.9rem;
+	}
+
+	@media (max-width: 480px) {
 		font-size: 0.875rem;
 	}
 `; 

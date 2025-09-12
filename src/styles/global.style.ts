@@ -86,9 +86,12 @@ const GlobalStyle = createGlobalStyle`
 		.hide-text-480 { display: none !important; }
 	}
 
-	.show-icon-480 { display: none; }
+	.hide-icon-768 { display: inline; }
+	@media (max-width: 768px) {
+		.hide-icon-768 { display: none !important; }
+	}
 	@media (max-width: 480px) {
-		.show-icon-480 { display: inline !important; }
+		.hide-icon-768 { display: inline !important; }
 	}
 `;
 
