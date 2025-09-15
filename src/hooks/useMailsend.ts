@@ -38,7 +38,7 @@ export default function useMailsend({ contentTitle }: MailsendProps) {
             const props = {
                 type: 1,
                 option: 1004,
-                to: "web@doweb.kr",
+                to: "pill4323@naver.com",
                 data,
             }
 
