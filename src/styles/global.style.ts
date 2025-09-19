@@ -93,6 +93,11 @@ const GlobalStyle = createGlobalStyle`
 	@media (max-width: 480px) {
 		.hide-icon-768 { display: inline !important; }
 	}
+
+	.hide-br-768 { display: inline; }
+	@media (max-width: 768px) {
+		.hide-br-768 { display: none !important; }
+	}
 `;
 
 export default GlobalStyle;
